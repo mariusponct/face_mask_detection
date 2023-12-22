@@ -1,0 +1,39 @@
+1. Preprocesarea datelor
+
+   Funcția preprocess_dataset(root_folder) este definită pentru a încărca și preprocesa setul de date
+   Setul este organizat in subdirectoare (with_mask, without_mask).
+   Functia citeste imaginile din subdirectoare le redimentioneaza la 64x64 si normalizeaza valorile pixelilor intre [0,1].
+
+2. Configurare set de date
+
+   Setare folder radacina al setului de date
+   Apelare functia preprocess_dataset pentru a incarca si preprocesa datele
+   d
+
+3. Construirea unei retele neuronale convolutionala (CNN)
+
+   Folosim TensorFlow(librarie de calcul numeric, construirea si antrenarea de Machine learning) pentru a construi un CNN simplu pentru clasificare binara (masca, fara masca).
+   Este format din 3 strauri convolutionale, urmat de un strat de aplatizare si doua straturi dense.
+
+4. Impartire set de date
+
+   Setul de date se imparte in seturi de antranemnt si testare folosind train_test_split
+
+5. Convertire etichete la valori numerice
+
+   Convertim etichetele setului (cu masca, fara masca) la etichete numerice(0,1).
+
+6. Antrenare model
+
+   Modelul CNN este antrenat pe setul de antrenament si validat pe setul de testare.
+
+7. Detectarea mastii
+  
+   Folosim OpenCv pentru a captura cadre video de la camera web.
+   Folosim OpenCv pentru detectarea mastii folosind modelul antrenat
+   Functia detect_face preia un cadru de imagine, detecteaza fata folosind detectorul Haar(recunostere obiect)
+   si clasifica fiecare fata (cu masca sau fara masca)
+
+ 8. Rulare aplicatie
+
+    Captare cadre video, aplicare detectare, afisare rezultat.
